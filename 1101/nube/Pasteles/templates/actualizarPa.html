@@ -1,0 +1,65 @@
+{% extends "basePa.html" %}
+{% block content %}
+{{ dato.color}}
+ {% if errors %}
+    {{errors}}
+ {% endif %}
+<center>
+<h1>Pasteleria la Michoacana</h1> 
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p><label for="id_tamano">Tamaño:</label> 
+        <select name="tamano" id="tamano" required>
+            <option value>--Selecciona--</option>
+             <!------------------------------------------------------->
+            {% if dato.tamano == "Grande" %}
+            <option value="Grande" selected >Grande</option>
+            {% else %}
+            <option value="Grande">Grande</option>
+            {% endif %}
+            <!------------------------------------------------------->
+            {% if dato.tamano == "Mediano" %}
+            <option value="Mediano" selected >Mediano</option>
+            {% else %}
+            <option value="Mediano">Mediano</option>
+            {% endif %}
+            <!---------------------------------------------------------->
+            {% if dato.tamano == "Chico" %}
+            <option value="Chico" selected >Chico</option>
+            {% else %}
+            <option value="Chico">Chico</option>
+            {% endif %}
+          </select>
+    </p>
+    <p><label for="id_aabores">Sabores:</label>
+        <select name="sabores" id="sabores" required>
+            <option value>--Selecciona--</option>
+             <!------------------------------------------------------->
+             {% if dato.sabores == "Chocolate" %}
+             <option value="Chocolate" selected >Chocolate</option>
+             {% else %}
+             <option value="Chocolate">Chocolate</option>
+             {% endif %}
+             <!------------------------------------------------------->
+             {% if dato.sabores == "Bainilla" %}
+             <option value="Bainilla" selected >Bainilla</option>
+             {% else %}
+             <option value="Bainilla">Bainilla</option>
+             {% endif %}
+             <!---------------------------------------------------------->
+             {% if dato.sabores == "Zanahoria" %}
+             <option value="Zanahoria" selected >Zanahoria</option>
+             {% else %}
+             <option value="Zanahoria">Zanahoria</option>
+             {% endif %}
+          </select>
+    </p>
+    <p><label for="id_cantidad">Cantidad:</label> <input type="number" name="cantidad" required id="id_cantidad" value="{{dato.cantidad}}"></p>
+    <p><label for="id_costo">Costo:</label> <input type="number" min="0.1" step="0.01" name="costo" id="id_costo" value="{{dato.costo}}"></p>
+       
+
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+
+</form>
+</center>
+{% endblock content %}

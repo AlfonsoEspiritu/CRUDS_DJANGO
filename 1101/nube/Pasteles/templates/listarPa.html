@@ -1,0 +1,38 @@
+{% extends "basePa.html" %}
+{% block content %}
+{% load static %}
+<center>
+<h1>Pasteleria la Michoacana</h1>
+<ta ble>
+    <table class="table table-striped">
+        <thead>
+            <tr class="table-dark">
+                <th>Tamaño</th>
+                <th>Sabores</th>
+                <th>Cantidad</th>
+                <th>Costo</th>
+
+            </tr>
+            {% for n in Pasteles %}
+            <tr class="table-info"> 
+                <td>{{n.tamano}}</td>
+                <td>{{n.sabores}}</td>
+                <td>{{n.cantidad}}</td>
+                <td>{{n.costo}}</td>
+
+                <td>
+                <td><button id="{{n.id}}" onclick="location.href='/actualizarPa/{{n.id}}'"
+                    class="btn btn-outline-info">Actualizar</button></td>
+                <td><button id="{{n.id}}" onclick="location.href='/eliminarPa/{{n.id}}'"
+                        class="btn btn-outline-danger">Eliminar</button></td>
+                </td>
+            </tr>
+            {% endfor %}
+    </table>
+    </tbody>
+    <div style="display:flex;align-items:center;justify-content:center;flex-direction:column">
+        <button onclick="location.href='/agregarPa'"  class="btn btn-danger">Agregar</button>
+    </div>
+</table>
+</center>
+{% endblock content %}

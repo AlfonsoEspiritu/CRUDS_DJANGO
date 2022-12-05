@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'Style3.css'%}">
+    {% block title %}
+    <title>Pasteleria la Michoacana</title>
+    {% endblock title %}
+  </head>
+  <body>
+    <nav class="nav" id="nvar">
+      <div class="brand">
+          <h3>Pasteleria la Michoacana</h3>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;flex-direction:column;margin-right:2rem">
+        <button onclick="location.href='/listarPa'" class="btn btn-warning">Ir a inicio</button>
+        </div>
+      <div style="display:flex;align-items:center;justify-content:center;flex-direction:column;">
+        <button onclick="location.href='/listarPi'"  class="btn btn-danger">Ir a Pizzeria</button>
+    </div>
+  </nav>
+    <main>
+      <div
+        class="bg-image justify-content-center align-items-center"
+        style="
+          background-image: url('https://cdn.pixabay.com/photo/2016/11/22/18/52/cake-1850011_960_720.jpg');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          height: 100vh;
+        "
+      >
+        {% block content %} {% endblock content%}
+      </div>
+    </main>
+
+    <script type="text/javascript"></script>
+    {% block js %} {% endblock js %}
+
+    <footer></footer>
+  </body>
+</html>

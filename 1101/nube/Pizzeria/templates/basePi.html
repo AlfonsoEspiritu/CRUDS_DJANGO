@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="{% static 'bootstrap.min.css'%}">
+	<link rel="stylesheet" href="{% static 'Style3.css'%}">
+	{% block title %}
+	<title>Pizzeria Tocumbo</title> 
+	{% endblock title %}
+
+    
+</head>
+<body>
+	<nav class="nav" id="nvar">
+        <div class="brand">
+            <h3>Pizzeria Tocumbo</h3>
+        </div>
+		<div style="display:flex;align-items:center;justify-content:center;flex-direction:column;margin-right:2rem">
+			<button onclick="location.href='/listarPi'" class="btn btn-warning">Ir a inicio</button>
+		</div>
+		<div style="display:flex;align-items:center;justify-content:center;flex-direction:column;">
+			<button onclick="location.href='/listarPa'" class="btn btn-danger">Ir a Pasteleria</button>
+		</div>
+    </nav>
+<main>
+	<div
+	class="bg-image justify-content-center align-items-center"
+	style="
+	  background-image: url('https://cdn.pixabay.com/photo/2019/07/11/12/16/pizza-4330598_960_720.jpg');
+	  background-position: center;
+	  background-repeat: no-repeat;
+	  background-size: cover;
+	  height: 100vh;
+	"
+  >
+	{% block content %} {% endblock content%}
+  </div>
+</main>
+
+	<script type="text/javascript">
+
+	</script>
+	{% block js %}{% endblock js %}
+<footer></footer>
+ </body>
+</html>
+

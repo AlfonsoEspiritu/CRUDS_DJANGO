@@ -1,0 +1,65 @@
+{% extends "basePi.html" %}
+{% block content %}
+{{ dato.color}}
+ {% if errors %}
+    {{errors}}
+ {% endif %}
+ <center>
+<h1>Pizzeria Tocumbo</h1>    
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p><label for="id_tamanoPi">Tamaño:</label> 
+        <select name="tamanoPi" id="tamanoPi" required>
+            <option value>--Selecciona--</option>
+             <!------------------------------------------------------->
+            {% if dato.tamanoPi == "Grande" %}
+            <option value="Grande" selected >Grande</option>
+            {% else %}
+            <option value="Grande">Grande</option>
+            {% endif %}
+            <!------------------------------------------------------->
+            {% if dato.tamanoPi == "Mediana" %}
+            <option value="Mediana" selected >Mediana</option>
+            {% else %}
+            <option value="Mediana">Mediana</option>
+            {% endif %}
+            <!---------------------------------------------------------->
+            {% if dato.tamanoPi == "Chica" %}
+            <option value="Chica" selected >Chica</option>
+            {% else %}
+            <option value="Chica">Chica</option>
+            {% endif %}
+          </select>
+    </p>
+    <p><label for="id_saboresPi">Sabores:</label>
+        <select name="saboresPi" id="saboresPi" required>
+            <option value>--Selecciona--</option>
+             <!------------------------------------------------------->
+             {% if dato.saboresPi == "Hawaiana" %}
+             <option value="Hawaiana" selected >Hawaiana</option>
+             {% else %}
+             <option value="Hawaiana">Hawaiana</option>
+             {% endif %}
+             <!------------------------------------------------------->
+             {% if dato.saboresPi == "Pepperoni" %}
+             <option value="Pepperoni" selected >Pepperoni</option>
+             {% else %}
+             <option value="Pepperoni">Pepperoni</option>
+             {% endif %}
+             <!---------------------------------------------------------->
+             {% if dato.saboresPi == "Mexicana" %}
+             <option value="Mexicana" selected >Mexicana</option>
+             {% else %}
+             <option value="Mexicana">Mexicana</option>
+             {% endif %}
+          </select>
+    </p>
+    <p><label for="id_cantidadPi">Cantidad:</label> <input type="number" name="cantidadPi" required id="id_cantidadPi" value="{{dato.cantidadPi}}"></p>
+    <p><label for="id_costoPi">Costo:</label> <input type="number"  min="0.1" step="0.01" name="costoPi" id="id_costoPi" value="{{dato.costoPi}}"></p>
+       
+
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+
+</form>
+</center>
+{% endblock content %}
