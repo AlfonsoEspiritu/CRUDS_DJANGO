@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="{% static 'bootstrap.min.css'%}">
+	<link rel="stylesheet" href="{% static 'Style3.css'%}">
 	{% block title %}<title>Servicios en la nube</title> {% endblock title %}
 
 
@@ -15,7 +17,17 @@
     
 </head>
 <body>
-    <header></header>
+	<nav class="nav" id="nvar">
+		<div class="brand">
+			<h3>CRUD</h3>
+		</div>
+		<div style="display:flex;align-items:center;justify-content:center;flex-direction:column;margin-right:2rem">
+		  <button onclick="location.href='/listarPa'" class="btn btn-warning">Ir a Pasteleria</button>
+		  </div>
+		<div style="display:flex;align-items:center;justify-content:center;flex-direction:column;">
+		  <button onclick="location.href='/listarPi'"  class="btn btn-danger">Ir a Pizzeria</button>
+	  </div>
+	</nav>
 
 <main>
 

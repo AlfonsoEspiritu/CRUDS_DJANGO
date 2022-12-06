@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from .views import*
 import re
+from Pasteles.views import listar
 from django.views.static import serve
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -31,7 +32,7 @@ api.add_router("/api/",api_router)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^$',entrada, name="entrada"),
+    url(r'^$',listar, name="entrada"),
    #url(r'^$',listarPa, name="entrada"),
     path('hijo/',hijo, name="hijo"),
     url(r'^', include('prueba.urls')),
